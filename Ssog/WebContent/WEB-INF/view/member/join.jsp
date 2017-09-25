@@ -125,12 +125,12 @@
 				if(re==true){
 					window.alert("인증되었습니다.");
 				}else{
-					window.alert("실패"); 
-				}
+					//window.alert("실패");  
+				} 
 			})
 		}else{
 			window.alert("이메일 형식이 아닙니다."); 
-		}
+		} 
 	});
 	
 	document.getElementById("confirm").onclick = function() {
@@ -143,8 +143,8 @@
 				if (this.responseText == "true") {
 					window.alert("성공");
 				} else {
-					window.alert("실패");
-				}
+					//window.alert("실패");  
+				} 
 			}
 		}
 	}

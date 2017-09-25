@@ -227,6 +227,9 @@ li{
 </div>
 </div>
 <script>
+$("#socool").on("click",function(){
+	$("#sohot").show();
+});
 if(location.pathname != "/" ){ 
 	$("#sohot").hide();
 	$("#socool").on("click",function(){
@@ -242,7 +245,7 @@ if(location.pathname != "/" ){
 				   console.log(si);
 				   var a=si.split(" ");
 				   if(a[2]== "affix" ){ 
-				      $("#sohot").hide();
+				      $("#sohot").hide(); 
 				   }
 				});
 		   }

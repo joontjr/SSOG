@@ -75,6 +75,21 @@ public class SellerCounselDao {
 		}
 	}
 	
+	//답변 완료 된 글 개수
+		public Integer replyCount(){
+			SqlSession session = factory.openSession();
+			try{
+				int r = session.selectOne("seller.counsel_replyCount");
+				return r;
+			} catch(Exception e){
+				e.printStackTrace();
+				session.rollback();
+				return 0;
+			} finally{
+				session.close();
+			}
+		}
+	
 	//===============================================================
 	//리뷰
 	public List<Map<String,Object>> reviewList(Map map){
@@ -123,6 +138,22 @@ public class SellerCounselDao {
 			session.close();
 		}
 	}
+	
+	//Q&A
+		public List<Map<String,Object>> qnaList2(Map map){
+			SqlSession session = factory.openSession();
+			try {
+				List<Map<String,Object>> list =  session.selectList("seller.qna_list2", map);
+				session.commit();
+				return list;
+			} catch(Exception e){
+				e.printStackTrace();
+				session.rollback();
+				return null;
+			} finally{
+				session.close();
+			}
+		}
 	
 	//글이 총 몇개인지
 	public Integer qnaTotal(Map map){

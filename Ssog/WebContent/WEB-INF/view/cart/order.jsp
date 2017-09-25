@@ -191,12 +191,12 @@
 						</div>
 						<div align="left" style="width: 90%; padding: 10px;  padding-bottom:0px; border-bottom: 1px solid #d9d9d9; font-size: 11.5px">
 							<b style="color: #737373; padding-right: 45px;">상품 적립금</b> 
-							<input type="radio"	name="chk_point" value="save" />적립
+							<input type="radio"	name="chk_point" value="save" checked/>적립
 							<input type="radio"	name="chk_point" value="use" />즉시사용(상품 적립금<span id="point"></span>원)
 							<input type="hidden" id="hdpoint" name="hdpoint"/>
 								<div style="padding-left: 85px; padding-top: 8px; color: #999999;">  
 								<ul>
-								<li>일부 브랜드 상품은 구매 시 적립금 즉시 사용 또는 적립이 제한 될 수 있습니다.</li>
+								<li>일부 브랜드 상품은 구매 시 적립금 즉시 사용 또는 적립이 제한 될 수 있습니다.</li> 
 								</ul>
 								</div>
 						</div>
@@ -282,6 +282,7 @@
 	</div>
 </div>
 <script>
+	$("#save").prop("checked",true);
 	var tot = ${dhl.CHARGE*list.size()}; 
 	$('.price').each(function() {
 		tot += parseInt($(this).html());
@@ -340,12 +341,10 @@
 			var pt2 = pt.replace(/,/gi, '');
 			//$("#hdpoint").val(pt2);
 			var finicash = $("#finishcash").html();
-			window.alert(finicash); 
-			window.alert(basic);
 			var finalcash = basic - pt2;
 			$("#finishcash").html(finalcash);
 			basic = finalcash;
-		} else {
+		} else { 
 			$("#finishcash").html(basic);
 		}
 	});

@@ -74,8 +74,6 @@
 							<th></th>
 							<th>상품명</th>
 							<th>수량</th>
-							<th>할인금액</th>
-							<th>결제금액</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -84,10 +82,8 @@
 								<td>상품이미지</td>
 								<td class="pd_num">${map.ar2[vs.index]}</td>
 								<td>${data}</td>
-								<td></td>
-								<td></td>
 							</tr>
-						</c:forEach>
+						</c:forEach> 
 					</tbody>
 				</table>
 			</div>

@@ -68,7 +68,7 @@ public class SellerInfoController {
 		mav.addObject("order_list", order_list);
 		
 		//Q&A
-		List qna_list = scdao.qnaList(map);
+		List qna_list = scdao.qnaList2(map);
 		mav.addObject("qna_list", qna_list);
 		
 		//리뷰

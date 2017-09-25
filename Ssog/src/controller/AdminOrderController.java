@@ -149,23 +149,22 @@ public class AdminOrderController {
 	}
 	
 	@RequestMapping("/order_modifyExec.ja")
-	@ResponseBody
-	public boolean order_modifyExec(@RequestParam Map params){
-		System.out.println("넘어온 거 : "+params);
-		String state = (String)params.get("state");
-		System.out.println("state : "+state);
-		boolean b = aod.update_order(params);
-		if(b && state.equals("5")){
-			b = aod.update_order_user_record(params);
-			System.out.println("구매자 레코드 : "+b);
-			b = aod.update_order_seller_record(params);
-			System.out.println("판매자 레코드 : "+b);
-			b = aod.update_order_sell_qty(params);
-			System.out.println("개수 레코드 : "+b);
-		}else if(b && state.equals("8")){
-			b = aod.update_product_qty(params);
-		}
-		return b;
-	}
-
+	   @ResponseBody
+	   public boolean order_modifyExec(@RequestParam Map params){
+	      System.out.println("넘어온 거 : "+params);
+	      String state = (String)params.get("state");
+	      System.out.println("state : "+state);
+	      boolean b = aod.update_order(params);
+	      if(b && state.equals("5")){
+	         b = aod.update_order_user_record(params);
+	         System.out.println("구매자 레코드 : "+b);
+	         /*b = aod.update_order_seller_record(params);
+	         System.out.println("판매자 레코드 : "+b);*/
+	         b = aod.update_order_sell_qty(params);
+	         System.out.println("개수 레코드 : "+b);
+	      }else if(b && state.equals("8")){
+	         b = aod.update_product_qty(params);
+	      }
+	      return b;
+	   }
 }

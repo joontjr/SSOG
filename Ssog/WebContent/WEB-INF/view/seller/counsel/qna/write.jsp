@@ -67,7 +67,7 @@
 				<tr>
 					<td class="td_left">문의유형</td>
 					<td colspan="3">
-						${map.CATEGORY}
+						${map.QNA_CATEGORY}
 					</td>
 				</tr>
 				<tr>
@@ -79,7 +79,7 @@
 				<tr>
 					<td class="td_left">문의 내용</td>
 					<td colspan="3">
-						<textarea name="content" rows="20" style="width:100%; resize:none; overflow: scroll;">
+						<textarea name="content" id="content" rows="20" style="width:100%; resize:none; overflow: scroll;" required>
 
 
 
@@ -96,3 +96,12 @@ ${map.CONTENT}
 	</div>
 	
 </div>
+
+<script>
+$( "form" ).submit(function( event ) {
+	if($("#content").val().trim().length<=0){
+		window.alert("비어있는 내용이 있습니다");
+		return false;
+	}
+});
+</script>

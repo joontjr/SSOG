@@ -157,7 +157,8 @@ public class SellerCounselController {
 //			System.out.println("op:" + op);
 //			System.out.println("rst:" + rst);
 //			System.out.println("map:" + map);
-		
+			
+		int reply_count = sdao.replyCount();
 		List list = sdao.qnaList(map);
 		System.out.println(map);
 		mav.addObject("section", "seller/counsel/qna/list");
@@ -165,6 +166,7 @@ public class SellerCounselController {
 		mav.addObject("p", p);
 		mav.addObject("page", rst);
 		mav.addObject("total", total);
+		mav.addObject("reply_count",reply_count);
 		return mav;
 	}
 	

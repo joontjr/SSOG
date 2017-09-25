@@ -139,6 +139,8 @@ public class MemberController {
 		param.put("phone", phone);
 		param.put("birth", birth);
 		System.out.println(param);
+		
+		
 		boolean r;
 		if (session.getAttribute("suckey").equals("TT")) {
 			r = mdao.join(param);
@@ -147,10 +149,14 @@ public class MemberController {
 				session.setAttribute("auth", param.get("id"));
 				String id = (String)session.getAttribute("auth"); 
 				mdao.user_info(id);
+				Map map=new HashMap<>(); 
+				map=mdao.findName(id);
+				String name=(String) map.get("NAME");
+				session.setAttribute("username", name);
 			}
 		} else {
-			r = false;
-		}
+			r = false; 
+		}		
 		mav.addObject("rst",r);
 		return mav;
 		

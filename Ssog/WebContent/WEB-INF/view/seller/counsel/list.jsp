@@ -51,7 +51,7 @@
 				문의내역입니다.</small><br>
 			<b style="font-size: 12px; padding-right: 330px;">고객님께서 신청한 문의 : 
 				<b style="color: #ff4d4d; font-size: 13px;">${total}</b>건
-				&nbsp;&nbsp;/&nbsp; 답변완료 된 문의 : 0건
+				&nbsp;&nbsp;/&nbsp; 답변완료 된 문의 : ${reply_count}건
 			</b>
 		</p>
 		<button type="button" class="btn btn-custom" id="btn" onclick="location='/seller/counsel/write.j'">1:1 문의 하기</button>
@@ -73,7 +73,7 @@
 				<c:forEach var="i" items="${list}">
 					<tr>
 						<td><custom:counsel message="${i.CATE}"/></td>
-						<td><a href="/seller/counsel/detail.j?num=${i.NUM}">${i.TITLE }</a></td>
+						<td><a href="/seller/counsel/write.j?num=${i.NUM}">${i.TITLE }</a></td>
 						<td><fmt:formatDate value="${i.COUNSEL_DATE }" pattern="yyyy-MM-dd"/></td>
 						<td><b><custom:reply message="${i.REPLY}"/></b></td>
 					</tr>

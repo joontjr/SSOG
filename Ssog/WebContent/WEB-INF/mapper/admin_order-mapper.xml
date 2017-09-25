@@ -114,4 +114,8 @@
 	<select id="getDelivery" resultType="java.lang.Integer">
 		select count(*) count from ORDERTBL where state = 4
 	</select>
+	
+	<select id="updateDelivery_ready" resultType="java.util.HashMap">
+      select order_num from ORDERTBL where state = 4
+   </select>
 </mapper>

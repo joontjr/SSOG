@@ -173,8 +173,7 @@
 					</tr>		
 				</c:forEach>
 			</table>
-			<button type="button" onClick="location='#'" class="btn" style="margin-left:10px;">버튼</button>
-			<button type="button" onClick="location='#'" class="btn">버튼</button>
+			
 		</form>
 	</div>
 

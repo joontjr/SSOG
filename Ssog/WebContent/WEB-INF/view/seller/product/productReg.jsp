@@ -16,8 +16,8 @@ img:hover {
 <p style="text-align: left; margin-top: 20px;"><b>이 곳은 상품 등록 페이지 입니다.</b><br/>
 쇼핑몰에 상품을 진열하는데 필요한 기본정보를 입력합니다. 
 </p> 
-<form action="/seller/product/productRegExec.j" method="post" enctype="multipart/form-data"> 
-<div class="form-group" id="editform"> 
+<form action="/seller/product/productRegExec.j" method="post" enctype="multipart/form-data" id="editform"> 
+<div class="form-group" > 
 <table style="height: 100%; width: 100%;" border="1">  
 	<tr style="height: 5%"><td style="width: 20%; background-color: #eaeaea;">상품명</td><td colspan="3"><input class="form-control" type="text" style="width: 95%" name="pro_name" required="false"/></td>
 	</tr>
@@ -122,7 +122,7 @@ $("#large_cate").change("click",function(){
 	if(lcate != '대분류'){
 		if(scate != '소분류'){
 			if(origin != '생산지'){
-				$("#editform").submit();					
+				$("#editform").submit();			 		
 			}else{
 				window.alert("생산지를 선택해주세요");
 			}

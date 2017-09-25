@@ -159,7 +159,7 @@ li {
               <fmt:formatNumber value="${i.PRICE }" type="number"/>원
               </b></div>  
          <c:if test="${!empty i.CUPON_TYPE }">
-            <div align="right"  ><label style="color: red; width: 80px;">${i.CUPON_TYPE }% 행사중</label></div> 
+            <div align="right"  ><label style="color: red; width: 80px;">${i.CUPON_TYPE }% 행사중</label></div>  
          </c:if>            
          </div>
       </div>
@@ -169,7 +169,7 @@ li {
 
 <!--  페이지 나오는거    -->
 <div class="container" style="margin-top: 20px;" align="center">
-   <ul class="pager">
+   <ul class="pager"> 
 
       <ul class="pagination pagination-lg">
          <c:if test="${paging.startPageNo ne 1 }">

@@ -58,8 +58,8 @@
 				<tr>
 					<td class="td_left">문의유형</td>
 					<td colspan="3">
-						<select class="form-control" name="cate" id="cate" style="width: 200px;height: 33px;"> 
-							<option>---선택---</option>
+						<select class="form-control" name="cate" id="cate" style="width: 200px;height: 33px;" required> 
+							<option value="none">---선택---</option>
 							<c:forEach var="i" items="${cate}">
 								<option value="${i.NUM }">${i.CATEGORY}</option>
 							</c:forEach>
@@ -81,8 +81,8 @@
 				<tr>
 					<td class="td_left">문의 내용</td>
 					<td colspan="3">
-						<textarea name="content" rows="4" style="width:100%; resize:none; overflow: scroll;"></textarea><br>
-						<small style="font-size: 11px; padding-right: 60px;">* 정확하고 빠른 답변을 위하여 질문하시는 내용을 구체적으로 적어주세요. 
+						<textarea name="content" id="content"  rows="4" style="width:100%; resize:none; overflow: scroll;"></textarea><br>
+						<small style="font-size: 11px; padding-right: 60px;" required>* 정확하고 빠른 답변을 위하여 질문하시는 내용을 구체적으로 적어주세요. 
 						내용은 500자 이내로 입력하세요.</small>
 					</td>
 				</tr>
@@ -90,7 +90,6 @@
 					<td class="td_left">이미지첨부</td>
 					<td colspan="3">  
 						<input type="file" name="f">
-						<button type="button" onClick="location='#'">삭제</button><br>
 						<small style="font-size: 11px; padding-right: 60px;">
 							*첨부 가능 파일형식 : JPG(JPEG), GIF, PDF<br/>
 							* 파일명은 영문/숫자만 가능합니다.
@@ -104,3 +103,11 @@
 	</div>
 	
 </div>
+<script>
+	$( "form" ).submit(function( event ) {
+		if($("#content").val().trim().length<=0 || $("#cate").val() == "none"){
+			window.alert("비어있는 내용이 있습니다");
+			return false;
+		}
+	});
+</script>

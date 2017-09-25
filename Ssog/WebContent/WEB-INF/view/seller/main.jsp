@@ -152,9 +152,10 @@
 					<tr style="border-top: 3px solid black;">
 						<th width="10%">상품번호</th>
 						<th width="10%">문의유형</th>
-						<th width="50%">제목</th>
+						<th width="45%">제목</th>
 						<th width="10%">작성자</th>
 						<th width="20%">작성일</th>
+						<th width="10%">답변</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -168,6 +169,7 @@
 							<td><a href="/seller/counsel/qna/write.j?num=${i.NUM}">${i.TITLE}</a></td>
 							<td>${i.USER_ID}님</td>
 							<td><fmt:formatDate value="${i.QANDADATE}" pattern="yyyy/MM/dd"/></td>
+							<td>${i.REPLY eq 0? '답변대기' : '답변완료' }</td>
 						</tr>
 					</c:forEach>
 				</tbody>

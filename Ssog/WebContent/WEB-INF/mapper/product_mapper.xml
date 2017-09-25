@@ -127,7 +127,7 @@
     select * from cupon_type
     </select>    
     <insert id="useEvent" parameterType="java.util.HashMap">
-    insert into event_list values(event_list_num_seq.nextval,pro_seq.currval,#{event})
+    insert into event_list values(event_list_num_seq.nextval,pro_seq.currval,#{event })
     </insert>
     <delete id="EndEvent" parameterType="java.util.HashMap">
     delete from event_list where product_id=#{num}

@@ -788,7 +788,7 @@ public class AdminManagementController {
 	@RequestMapping("/popup/popup_writeExec.ja")
 	public ModelAndView popup_writeExec(@RequestParam Map params, @RequestParam(name="f") MultipartFile f) throws IllegalStateException, IOException{
 		System.out.println("params : "+params);
-		
+		System.out.println("f : "+f.isEmpty());
 		String filename = f.getOriginalFilename();
 		String uuid = UUID.randomUUID().toString();
 		String dirs = application.getRealPath("/admin/popupImg");
@@ -798,10 +798,12 @@ public class AdminManagementController {
 			dir.mkdirs();
 		}
 		
-		File file = new File(dirs, uuid);
-		if (!file.exists()) {
-			f.transferTo(file);
-			params.put("uuid", uuid);
+		if(!f.isEmpty()){
+			File file = new File(dirs, uuid);
+			if (!file.exists()) {
+				f.transferTo(file);
+				params.put("uuid", uuid);
+			}
 		}
 		
 		boolean b = ad.putPopup(params);
@@ -844,30 +846,32 @@ public class AdminManagementController {
 	@RequestMapping("/popup/popup_modifyExec.ja")
 	public ModelAndView popup_modifyExec(@RequestParam Map params, @RequestParam(name="f") MultipartFile f) throws IllegalStateException, IOException{
 		
-		String filename = f.getOriginalFilename();
-		String uuid = null;
-		
-		String tmp = ad.checkPopup_img_uuid(params);
-		
-		System.out.println("tmp : "+tmp);
-		
-		if(tmp == null){
-			uuid = UUID.randomUUID().toString();
-		}else{
-			uuid = tmp;
-		}
-		
-		String dirs = application.getRealPath("/admin/popupImg");
-		
-		File dir = new File(dirs);
-		if(!dir.exists()){
-			dir.mkdirs();
-		}
-		
-		File file = new File(dirs, uuid);
-		if (!file.exists() || tmp != null) {
-			f.transferTo(file);
-			params.put("uuid", uuid);
+		if(!f.isEmpty()){
+			String filename = f.getOriginalFilename();
+			String uuid = null;
+			
+			String tmp = ad.checkPopup_img_uuid(params);
+			
+			System.out.println("tmp : "+tmp);
+			
+			if(tmp == null){
+				uuid = UUID.randomUUID().toString();
+			}else{
+				uuid = tmp;
+			}
+			
+			String dirs = application.getRealPath("/admin/popupImg");
+			
+			File dir = new File(dirs);
+			if(!dir.exists()){
+				dir.mkdirs();
+			}
+			
+			File file = new File(dirs, uuid);
+			if (!file.exists() || tmp != null) {
+				f.transferTo(file);
+				params.put("uuid", uuid);
+			}
 		}
 		
 		System.out.println("modifyExec params : "+params);
@@ -876,6 +880,7 @@ public class AdminManagementController {
 		ModelAndView mv = new ModelAndView("redirect:/admin/management/popup/popup_list.ja");
 		return mv;
 	}
+
 	
 	@RequestMapping("/popup/popup_del.ja")
 	public String popup_del(@RequestParam Map params, Map map){

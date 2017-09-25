@@ -203,11 +203,14 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/changeDelivery.ja")
-	@ResponseBody
-	public int changeDelivery(){
-		boolean b = aod.updateDelivery();
-		return aod.getDelivery();
-	}
+	   @ResponseBody
+	   public int changeDelivery(){
+	      List li = aod.updateDelivery_ready();
+	      System.out.println("list : "+li);
+	      boolean b = aod.updateDelivery2(li);
+	      b = aod.updateDelivery();
+	      return aod.getDelivery();
+	   }
 	
 	@RequestMapping("/mainAd.ja")
 	public String mainAd(Map map){

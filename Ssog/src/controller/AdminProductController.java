@@ -50,7 +50,7 @@ public class AdminProductController {
 			}
 		}
 		System.out.println("params의 value : "+params.get("value"));
-		pg.setDefaultSetting(10, 5);
+		pg.setDefaultSetting(5, 5);
 		int rows = apd.product_list_count(params);
 		pg.setNumberOfRecords(rows);
 		Map paging = pg.calcPaging(p, rows);

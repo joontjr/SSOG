@@ -75,7 +75,7 @@ td{
 									할인없음
 								</c:when>
 								<c:otherwise>
-									${rate }%<sub>(할인 : ${rateMoney }원)</sub>
+									${rate }%<sub>(할인 : <fmt:formatNumber value='${empty rateMoney ? 0 : reteMoney }' pattern='#,###'/>원)</sub>
 							</c:otherwise>
 						</c:choose>
 						</td>
@@ -121,12 +121,6 @@ td{
 				</thead>
 				<tbody>
 					<tr>
-						<th class="type2">등급</th>
-						<td>
-							${grade}
-						</td>
-					</tr>
-					<tr>
 						<th class="type2">누적 판매 개수</th>
 						<td>
 							<c:choose>
@@ -146,6 +140,7 @@ td{
 							<c:choose>
 								<c:when test="${sum ne -1 }">
 									<fmt:formatNumber value='${sum }' pattern='#,###'/>원
+									<sub>(배송비제외)</sub>
 								</c:when>
 								<c:otherwise>
 									0원

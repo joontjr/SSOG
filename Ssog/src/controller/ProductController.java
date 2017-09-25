@@ -47,7 +47,7 @@ public class ProductController {
       System.out.println("오리진 그룹" + Arrays.toString(arr));
 
       param.put("origin_group", arr);
-      pg.setDefaultSetting(8, 5);
+      pg.setDefaultSetting(9, 5);
       if (param.get("search") != null && !param.get("search").equals("")) {
          String search = (String) param.get("search");
          search = "%" + search + "%";
