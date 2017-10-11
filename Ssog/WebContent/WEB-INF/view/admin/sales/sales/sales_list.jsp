@@ -257,7 +257,7 @@ function drawChart() {
 			</c:when>
 			<c:otherwise>
 			<c:forEach var="i" items="${days}" varStatus="vs">
-				["", ${i.price}]
+				["", ${i.price}, ${i.priceR}]
 				<c:if test="${!vs.last}">,</c:if>
 			</c:forEach>
 			</c:otherwise>
